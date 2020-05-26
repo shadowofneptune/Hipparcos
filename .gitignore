@@ -72,3 +72,8 @@
 /hipparcos_src/obj/Debug/hipparcos.csprojAssemblyReference.cache
 /hipparcos_src/obj/Debug/hipparcos.dll
 /hipparcos_src/obj/Debug/hipparcos.pdb
+/.vs/hipparcos/v16/.suo
+/hipparcos_src/.vs/hipparcos_src/v16/.suo
+/hipparcos_src/.vs/ProjectSettings.json
+/hipparcos_src/.vs/slnx.sqlite
+/hipparcos_src/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
