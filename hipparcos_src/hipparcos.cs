@@ -138,7 +138,7 @@ namespace hipparcos
         void RaDecToXYZ(float rarad, float decrad, ref float x, ref float y, ref float z) //Converts right ascension and declination (both in radians) to XYZ coordinates.  While it's possible to use this to get the true positions of stars using their distances in parsecs, we just want to make a simplified model: a celestial sphere.
         {
             float r = 2000.0f; //radius of celestial sphere in Unity units. Can be rather small since it will be always bound to the camera and rendered behind everything else.
-            z = 0f-(r * Mathf.Cos(decrad) * Mathf.Cos(rarad));//forward/backward axis
+            z = 0 - r * Mathf.Cos(decrad) * Mathf.Cos(rarad);//forward/backward axis
             x = r * Mathf.Cos(decrad) * Mathf.Sin(rarad);//right/left axis
             y = r * Mathf.Sin(decrad); //Up/down axis.  These letters refer to different axes than the textbook examples of these equations, that is because of Unity's coordinate system.
         }
@@ -149,7 +149,7 @@ namespace hipparcos
             position = new Vector3 (x, y, z);
             Color starColor = new Color(1,1,1,1);
             stars[starsArray].position = position;
-            stars[starsArray].startSize = 2.0f * (8.0f - mag);
+            stars[starsArray].startSize = 2.7f + 2 * (6.5f - mag);
             ColorFinder(ci, ref starColor);
             stars[starsArray].startColor = starColor;
             stars[starsArray].startLifetime = Mathf.Infinity;
@@ -160,7 +160,7 @@ namespace hipparcos
             float r;
             float g;
             float b;
-            float temp = 4600 * ((1 / (0.92f * ci + 1.7f)) + (1 / (0.92f * ci + 0.62f))); //converting B-V color index to temperature using a formula from Ballesteros 2012: https://doi.org/10.1209/0295-5075/97/34008
+            float temp = 4600 * (1 / (0.92f * ci + 1.7f) + 1 / (0.92f * ci + 0.62f)); //converting B-V color index to temperature using a formula from Ballesteros 2012: https://doi.org/10.1209/0295-5075/97/34008
             //the following is based off the algorithm found here: https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html
             temp /= 100;
             //red
@@ -238,7 +238,6 @@ namespace hipparcos
                 }
             }
                 returnColor = new Color(r, g, b, 1);
-                print(returnColor);
         }
        
 
