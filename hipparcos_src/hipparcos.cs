@@ -45,7 +45,7 @@ namespace hipparcos
                 float rarad = float.Parse(o["rarad"].Value);
                 float decrad = float.Parse(o["decrad"].Value);
                 float mag = float.Parse(o["mag"].Value);
-                float ci = 1.40f;
+                float ci = float.Parse(o["ci"].Value);
                 AStarisBorn(starsArray, rarad, decrad, mag, ci);
                 starsArray += 1;
             }
@@ -160,7 +160,7 @@ namespace hipparcos
             float r;
             float g;
             float b;
-            float temp = 4600 * ((1 / (0.92f * ci + 1.7f)) + (1 / (0.92f * ci + 0.62f))); //converting B-V color index to temperature using a formula by F. J. Ballesteros.  https://doi.org/10.1209/0295-5075/97/34008
+            float temp = 4600 * ((1 / (0.92f * ci + 1.7f)) + (1 / (0.92f * ci + 0.62f))); //converting B-V color index to temperature using a formula from Ballesteros 2012: https://doi.org/10.1209/0295-5075/97/34008
             //the following is based off the algorithm found here: https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html
             temp /= 100;
             //red
@@ -236,10 +236,11 @@ namespace hipparcos
                         b = 1;
                     }
                 }
+            }
                 returnColor = new Color(r, g, b, 1);
                 print(returnColor);
-            }
         }
+       
 
         void OnDestroy()
         {
@@ -247,3 +248,5 @@ namespace hipparcos
         }
     }
 }
+
+
