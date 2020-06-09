@@ -64,7 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="hipparcos.cs" />
+    <Compile Include="HSettings.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="CelestialSphere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleJSON.cs" />
   </ItemGroup>
